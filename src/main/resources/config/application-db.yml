@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    hikari:
+      jdbc-url:
+      username:
+      password:
+      driver-class-name: com.mysql.jdbc.Driver
+      read-only: false
+      maximum-pool-size: 30
+      max-lifetime: 20000000
+      connection-timeout: 15000
+    type: com.zaxxer.hikari.HikariDataSource

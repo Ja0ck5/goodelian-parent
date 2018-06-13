@@ -1,0 +1,18 @@
+miniworld:
+  redis:
+    home:
+      name: miniworld_home_redis
+      host:
+      pwd:
+      port:
+      timeout: 0
+      maxIdle: 10
+      maxTotal: 30
+    log:
+      name: log_redis
+      host:
+      pwd:
+      port:
+      timeout: 0
+      maxIdle: 10
+      maxTotal: 30

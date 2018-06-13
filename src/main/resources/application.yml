@@ -1,0 +1,10 @@
+spring:
+  profiles.active: @activatedProperties@
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+logging:
+  config: classpath:config/logback-spring.xml
