@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>好亿莲 - Goodelian</title>
+	<title>好忆莲 - Goodelian</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="../assets/css/googleapis.css">
@@ -60,8 +60,7 @@
 				<li><a class="scroll-link" href="#top-content">回到顶部</a></li>
 				<li><a class="scroll-link" href="#what-we-do">简介</a></li>
 				<li><a class="scroll-link" href="#portfolio">产品</a></li>
-				<li><a class="scroll-link" href="#pricing-2">好亿莲大事件</a></li>
-				<!--<li><a class="scroll-link" href="#about">About</a></li>-->
+				<li><a class="scroll-link" href="#about-block-2">好亿莲大事件</a></li>
 				<li><a class="scroll-link" href="#contact">联系我们</a></li>
 			</ul>
 		</div>
@@ -70,14 +69,14 @@
 
 <!-- Page title -->
 <div class="page-title top-content">
-	<div class="page-title-text wow fadeInUp">
-		<h1>Welcome to our site</h1>
-		<p>We are Lancar, a design agency doing cool things with Photoshop and WordPress. Take a look around to see what we can do for you!</p>
-		<div class="page-title-bottom-link">
-			<a class="big-link-1 btn scroll-link" href="#pricing-2">Start now</a>
-			<a class="big-link-2 btn scroll-link" href="#what-we-do">Learn more</a>
-		</div>
-	</div>
+	<!--<div class="page-title-text wow fadeInUp" >-->
+		<!--<h1>Welcome to our site</h1>-->
+		<!--<p>We are Lancar, a design agency doing cool things with Photoshop and WordPress. Take a look around to see what we can do for you!</p>-->
+		<!--<div class="page-title-bottom-link">-->
+			<!--<a class="big-link-1 btn scroll-link" href="#pricing-2">Start now</a>-->
+			<!--<a class="big-link-2 btn scroll-link" href="#what-we-do">Learn more</a>-->
+		<!--</div>-->
+	<!--</div>-->
 </div>
 
 <!-- What we do -->
@@ -265,7 +264,7 @@
 		<div class="row">
 			<div class="col-sm-12 portfolio-masonry">
 				<div class="portfolio-box design" th:each="i : ${#numbers.sequence(100,111)}">
-					<img th:src="@{'http://pa7v38t3f.bkt.clouddn.com/'+${i}+'.jpg'}" alt="" th:data-at2x="@{'assets/img/portfolio/'+${i}+'.jpg'}">
+					<img th:src="@{'http://pa7v38t3f.bkt.clouddn.com/'+${i}+'.jpg'}" alt="" th:data-at2x="@{'http://pa7v38t3f.bkt.clouddn.com/'+${i}+'.jpg'}">
 					<div class="portfolio-box-text-container">
 						<div class="portfolio-box-text">
 							<p th:text="好忆莲">好忆莲</p>
@@ -717,20 +716,20 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-4 block-2-box block-2-left contact-form wow fadeInLeft">
+			<div class="col-sm-4 block-2-box block-2-left  wow fadeInLeft">
 				<h3>Email us</h3>
-				<form role="form" action="../assets/contact.php" method="post">
+				<form action="#" th:action="@{/concat}" th:object="${concat}" method="post">
 					<div class="form-group">
 						<label class="sr-only" for="contact-email">Email</label>
-						<input type="text" name="email" placeholder="Email..." class="contact-email form-control" id="contact-email">
+						<input type="text" th:field="*{email}" name="email" placeholder="Email..." class="contact-email form-control" id="contact-email">
 					</div>
 					<div class="form-group">
 						<label class="sr-only" for="contact-subject">Subject</label>
-						<input type="text" name="subject" placeholder="Subject..." class="contact-subject form-control" id="contact-subject">
+						<input type="text"  th:field="*{subject}" name="subject" placeholder="Subject..." class="contact-subject form-control" id="contact-subject">
 					</div>
 					<div class="form-group">
 						<label class="sr-only" for="contact-message">Message</label>
-						<textarea name="message" placeholder="Message..." class="contact-message form-control" id="contact-message"></textarea>
+						<textarea th:field="*{message}" name="message" placeholder="Message..." class="contact-message form-control" id="contact-message"></textarea>
 					</div>
 					<button type="submit" class="btn">Send it</button>
 				</form>
@@ -760,7 +759,7 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-7 footer-copyright">
-				&copy; 好亿莲 <a href="http://www.goodelian.com/" target="_blank" title="好忆莲">好忆莲</a> <a href="http://www.goodelian.com/" title="好忆莲" target="_blank">好忆莲</a>.
+				&copy; 好忆莲 <a href="http://www.goodelian.com/" target="_blank" title="好忆莲">好忆莲</a> <a href="http://www.goodelian.com/" title="好忆莲" target="_blank">好忆莲</a>.
 			</div>
 			<!--<div class="col-sm-5 footer-social">-->
 			<!--<a href="#"><i class="fa fa-facebook"></i></a>-->

@@ -83,8 +83,8 @@
       wrap: {
           left: 0
         , top: 0
-        , overflow: 'hidden'
         , margin: 0
+        , overflow: 'hidden'
         , padding: 0
         , height: '100%'
         , width: '100%'
