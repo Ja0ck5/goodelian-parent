@@ -60,7 +60,7 @@
 				<li><a class="scroll-link" href="#top-content">回到顶部</a></li>
 				<li><a class="scroll-link" href="#what-we-do">简介</a></li>
 				<li><a class="scroll-link" href="#portfolio">产品</a></li>
-				<li><a class="scroll-link" href="#about-block-2">好亿莲大事件</a></li>
+				<li><a class="scroll-link" href="#about-block-2">好忆莲大事件</a></li>
 				<li><a class="scroll-link" href="#contact">联系我们</a></li>
 			</ul>
 		</div>
@@ -625,7 +625,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8 block-2-box block-2-left wow fadeInLeft">
-				<h3>好亿莲 / <span>大事件</span></h3>
+				<h3>好忆莲 / <span>大事件</span></h3>
 				<p>
 					2018武汉展会.
 				</p>
@@ -704,7 +704,7 @@
 		<div class="row">
 			<div class="col-sm-4 block-2-box block-2-left  wow fadeInLeft">
 				<h3>Email us</h3>
-				<form action="#" th:action="@{/concat}" th:object="${concat}" method="post">
+				<form action="#"  th:action="@{/concat}" th:object="${concat}" method="post">
 					<div class="form-group">
 						<label class="sr-only" for="contact-email">Email</label>
 						<input type="text" th:field="*{email}" name="email" placeholder="Email..." class="contact-email form-control" id="contact-email">
@@ -717,7 +717,7 @@
 						<label class="sr-only" for="contact-message">Message</label>
 						<textarea th:field="*{message}" name="message" placeholder="Message..." class="contact-message form-control" id="contact-message"></textarea>
 					</div>
-					<!--<button type="submit" class="btn">Send it</button>-->
+					<button class="btn send_mail_btn">Send it</button>
 				</form>
 			</div>
 			<div class="col-sm-4 block-2-box block-2-right contact-address wow fadeInUp">
@@ -774,7 +774,68 @@
 <!--[if lt IE 10]>
 <script src="../assets/js/placeholder.js"></script>
 <![endif]-->
+<script>
+    // $(function () {
+    //     $('.send_mail_btn').on('click', function () {
+    //         var Status = $(this).val();
+    //         $.ajax({
+    //             url: '/concat',
+    //             data: {
+    //                 subject: $("input[name=subject]").val(),
+    //                 message: $("textarea[name=message]").val(),
+    //                 email: $("input[name=email]").val()
+    //             },
+    //             dataType : 'json'
+    //         });
+    //     });
+    // });
 
+    // $(document).on("click", "#submit", function(e) {
+    //     e.preventDefault();
+    //     x = $('form').serializeArray();
+    //     $.post('concat',x,function(msg) {
+    //         alert(msg);
+    //     })
+    // });
+
+
+$('form').submit(function (event) {
+    event.preventDefault();
+    var form = $(this);
+
+    if (!form.hasClass('fupload')) {
+        //普通表单
+        $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: form.serialize()
+        }).success(function () {
+            //成功提交
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            //错误信息
+        });
+    }
+    else {
+        // mulitipart form
+        var formData = new FormData(this);
+        $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: formData,
+            mimeType: "multipart/form-data",
+            contentType: false,
+            cache: false,
+            processData: false
+        }).success(function () {
+            //成功提交
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            //错误信息
+        });
+    };
+});
+
+
+</script>
 </body>
 
 </html>
