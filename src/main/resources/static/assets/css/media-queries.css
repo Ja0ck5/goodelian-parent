@@ -98,7 +98,7 @@ only screen and (                min-resolution: 2dppx) {
 	
 	/* logo */
     .navbar-brand {
-    	background-image: url(http://pa7v38t3f.bkt.clouddn.com/logo@1x.png) !important; background-repeat: no-repeat !important; background-size: 117px 47px !important;
+    	background-image: url(http://pa7v38t3f.bkt.clouddn.com/logo@01x.png) !important; background-repeat: no-repeat !important; background-size: 117px 47px !important;
     }
 	
 }
